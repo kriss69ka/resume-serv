@@ -1,0 +1,107 @@
+{
+  "users": {
+    "kimmi": {
+      "id": "1",
+      "lastName": "Kim",
+      "firstName": "Kristina",
+      "dataBirth": "31 июля 1997",
+      "profession": "Frondend Dev",
+      "text": "Привет! Мне 22 года. Сейчас я живу в Москве и учусь в школе Сбербанка.",
+      "aboutMe": {
+        "address": "Москва, Красная площадь",
+        "text": "Это текст",
+        "phone": "79996460177",
+        "email": "kriss.69ka@gmail.com",
+        "linkIg": "",
+        "linkGithub": "",
+        "linkVk": ""
+      },
+      "resume": {
+        "education": [
+          {
+            "name": "Школа №9",
+            "date": "20.10.10-13.32.32",
+            "specialty": "Школяр"
+          },
+          {
+            "name": "AKVT",
+            "date": "20.10.10-13.32.32",
+            "specialty": "Student"
+          }
+        ],
+        "work": [
+          {
+            "name": "FastMoney",
+            "date": "32.13.23-13.23.53",
+            "position": "middle db developer"
+          },
+          {
+            "name": "Magnit",
+            "date": "32.13.23-13.23.53",
+            "position": "senior db developer"
+          }
+        ],
+        "skills": [
+          "html",
+          "css",
+          "1111",
+          "sql"
+        ]
+      }
+    },
+    "timmi": {
+      "id": "1",
+      "lastName": "Kim",
+      "firstName": "Kristina",
+      "dataBirth": "31 июля 1997",
+      "profession": "Frondend Dev",
+      "text": "Привет! Мне 22 года. Сейчас я живу в Москве и учусь в школе Сбербанка.",
+      "aboutMe": {
+        "address": "Москва, Красная площадь",
+        "text": "Это текст",
+        "phone": "79996460177",
+        "email": "kriss.69ka@gmail.com",
+        "linkIg": "",
+        "linkGithub": "",
+        "linkVk": ""
+      },
+      "resume": {
+        "education": [
+          {
+            "name": "",
+            "date": "",
+            "specialty": ""
+          },
+          {
+            "name": "",
+            "date": "",
+            "specialty": ""
+          },
+          {
+            "name": "",
+            "date": "",
+            "specialty": ""
+          }
+        ],
+        "work": [
+          {
+            "name": "",
+            "date": "",
+            "position": ""
+          },
+          {
+            "name": "",
+            "date": "",
+            "position": ""
+          }
+        ],
+        "skills": [
+          "html",
+          "css",
+          "1111"
+        ]
+      }
+    }
+  },
+  "posts": []
+}
