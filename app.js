@@ -9,6 +9,7 @@ app.use(bodyParser.json());
 
 // Create database instance and start server
 const adapter = new FileAsync("db.json");
+
 low(adapter)
   .then(db => {
     app.get("/users/:id", (req, res) => {
@@ -20,7 +21,7 @@ low(adapter)
       res.send(user);
     });
 
-    // POST /posts
+    // POST
     app.post("/users", (req, res) => {
       db.get("users")
         .push(req.body)
@@ -31,7 +32,7 @@ low(adapter)
     });
 
     // Set db default values
-    return db.defaults({ posts: [] }).write();
+    return db.defaults({ users: [] }).write();
   })
   .then(() => {
     app.listen(3000, () => console.log("listening on port 3000"));

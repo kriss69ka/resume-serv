@@ -2,9 +2,9 @@
   "users": {
     "kimmi": {
       "id": "1",
-      "lastName": "Kim",
-      "firstName": "Kristina",
-      "dataBirth": "31 июля 1997",
+      "lastName": "Ким",
+      "firstName": "Кристина",
+      "dataBirth": "1997-07-31",
       "profession": "Frondend Dev",
       "text": "Привет! Мне 22 года. Сейчас я живу в Москве и учусь в школе Сбербанка.",
       "aboutMe": {
@@ -20,31 +20,34 @@
         "education": [
           {
             "name": "Школа №9",
-            "date": "20.10.10-13.32.32",
-            "specialty": "Школяр"
+            "date-from": "2003-09-01",
+            "date-to": "2013-05-31",
+            "specialty": "Школьник"
           },
           {
-            "name": "AKVT",
-            "date": "20.10.10-13.32.32",
-            "specialty": "Student"
+            "name": "АКВТ",
+            "date-from": "2013-09-01",
+            "date-to": "2017-05-31",
+            "specialty": "Студентик"
           }
         ],
         "work": [
           {
             "name": "FastMoney",
-            "date": "32.13.23-13.23.53",
+            "date-from": "2017-08-13",
+            "date-to": "2018-06-20",
             "position": "middle db developer"
           },
           {
             "name": "Magnit",
-            "date": "32.13.23-13.23.53",
+            "date-from": "2018-10-04",
+            "date-to": "2019-04-15",
             "position": "senior db developer"
           }
         ],
         "skills": [
           "html",
           "css",
-          "1111",
           "sql"
         ]
       }
@@ -102,6 +105,5 @@
         ]
       }
     }
-  },
-  "posts": []
+  }
 }
