@@ -44,11 +44,15 @@ low(adapter)
             alreadyRegistered: true
           });
         } else {
-          db.set(`users.${user.uid}`, createUser(user)).write();
-          return res.json({
-            registered: true,
-            id: user.uid
-          });
+          return db
+            .set(`users.${user.uid}`, createUser(user))
+            .write()
+            .then(() => {
+              return res.json({
+                registered: true,
+                id: user.uid
+              });
+            });
         }
       }
       res.json({
