@@ -2,16 +2,17 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const low = require("lowdb");
 const FileAsync = require("lowdb/adapters/FileAsync");
-
+// const cors = require("cors");
 const createUser = require("./createUser.js");
 
 const app = express();
 app.use(bodyParser.json());
+// app.use(cors());
 
 const adapter = new FileAsync("db.json");
 low(adapter)
   .then(db => {
-    app.get("/user/:id", (req, res) => {
+    app.get("/api/user/:id", (req, res) => {
       const userInDb = db
         .get("users")
         .find({ id: req.params.id })
@@ -30,7 +31,7 @@ low(adapter)
       }
     });
 
-    app.post("/regUser", (req, res) => {
+    app.post("/api/regUser", (req, res) => {
       const user = req.body.userInfo;
       const userInDb = db
         .get("users")
@@ -55,7 +56,7 @@ low(adapter)
       });
     });
 
-    app.post("/edit", (req, res) => {
+    app.post("/api/edit", (req, res) => {
       const user = req.body.userInfo;
       db.set(`users.${user.id}`, user).write();
       res.json({
