@@ -2,12 +2,12 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const low = require("lowdb");
 const FileAsync = require("lowdb/adapters/FileAsync");
-// const cors = require("cors");
+const cors = require("cors");
 const createUser = require("./createUser.js");
 
 const app = express();
 app.use(bodyParser.json());
-// app.use(cors());
+app.use(cors());
 
 const adapter = new FileAsync("db.json");
 low(adapter)
