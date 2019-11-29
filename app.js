@@ -3,35 +3,66 @@ const bodyParser = require("body-parser");
 const low = require("lowdb");
 const FileAsync = require("lowdb/adapters/FileAsync");
 
-// Create server
+const createUser = require("./createUser.js");
+
 const app = express();
 app.use(bodyParser.json());
 
-// Create database instance and start server
 const adapter = new FileAsync("db.json");
-
 low(adapter)
   .then(db => {
-    app.get("/users/:id", (req, res) => {
-      const user = db
+    app.get("/user/:id", (req, res) => {
+      const userInDb = db
         .get("users")
         .find({ id: req.params.id })
         .value();
-      console.log(user);
-      res.send(user);
+
+      if (userInDb) {
+        return res.json({
+          result: true,
+          userInfo: userInDb
+        });
+      } else {
+        return res.json({
+          userInDb: false,
+          userId: req.params.id
+        });
+      }
     });
 
-    // POST
-    app.post("/users", (req, res) => {
-      db.get("users")
-        .push(req.body)
-        .last()
-        .assign({ id: Date.now().toString() })
-        .write()
-        .then(user => res.send(user));
+    app.post("/regUser", (req, res) => {
+      const user = req.body.userInfo;
+      const userInDb = db
+        .get("users")
+        .find({ id: user.uid })
+        .value();
+
+      if (req.body.userInfo) {
+        if (userInDb) {
+          return res.json({
+            alreadyRegistered: true
+          });
+        } else {
+          db.set(`users.${user.uid}`, createUser(user)).write();
+          return res.json({
+            registered: true,
+            id: user.uid
+          });
+        }
+      }
+      res.json({
+        result: false
+      });
     });
 
-    // Set db default values
+    app.post("/edit", (req, res) => {
+      const user = req.body.userInfo;
+      db.set(`users.${user.id}`, user).write();
+      res.json({
+        result: true
+      });
+    });
+
     return db.defaults({ users: [] }).write();
   })
   .then(() => {
